@@ -572,8 +572,17 @@
                                 </platform>
                             </platforms>
                         </from>
+                        <!-- ACA SE DEFINE e, nombre que va a tener la imagen en GibHub usuario/nombre -->
                         <to>
                             <image>bootifulmusic:latest</image>
+                            <tags>
+                                <tag>${project.version}</tag>
+                                <tag>latest</tag>
+                            </tags>
+                            <auth>
+                                <username>${DOCKER_REGISTRY_USER}</username>
+                                <password>${DOCKER_REGISTRY_PWD}</password>
+                            </auth>
                         </to>
                         <container>
                             <entrypoint>

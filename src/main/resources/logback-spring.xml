@@ -40,7 +40,7 @@
 
     <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <remoteHost>host.docker.internal</remoteHost>
-        <port>50000</port>
+        <port>49999</port>
         <reconnectionDelay>10000</reconnectionDelay>
         <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
     </appender>
