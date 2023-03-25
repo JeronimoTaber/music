@@ -574,7 +574,7 @@
                         </from>
                         <!-- ACA SE DEFINE e, nombre que va a tener la imagen en GibHub usuario/nombre -->
                         <to>
-                            <image>bootifulmusic:latest</image>
+                            <image>musictest:latest</image>
                             <tags>
                                 <tag>${project.version}</tag>
                                 <tag>latest</tag>
