@@ -50,10 +50,11 @@ node {
     }
     
 
-    def dockerImage
-	stage('publish docker') {    
-		withCredentials([usernamePassword(credentialsId: 'docker-credential', passwordVariable:'DOCKER_REGISTRY_PWD', usernameVariable: 'DOCKER_REGISTRY_USER')]) {
-			sh "./mvnw -ntp jib:build"
-		}
-	}
+def dockerImage
+stage('publish docker') {    
+    withCredentials([usernamePassword(credentialsId: 'docker-credential', passwordVariable:'DOCKER_REGISTRY_PWD', usernameVariable: 'DOCKER_REGISTRY_USER')]) {
+        sh "docker login registry-1.docker.io -u ${env.DOCKER_REGISTRY_USER} -p ${env.DOCKER_REGISTRY_PWD}"
+        sh "./mvnw -ntp jib:build"
+    }
+}
 }
