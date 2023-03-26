@@ -48,10 +48,12 @@ node {
         sh "./mvnw -ntp verify -P-webapp -Pprod -DskipTests"
         archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
     }
-    stage('publish docker') {
-        withCredentials([usernamePassword(credentialsId: 'dockerhub-login', passwordVariable:
-            'DOCKER_REGISTRY_PWD', usernameVariable: 'DOCKER_REGISTRY_USER')]) {
-                sh "./mvnw -ntp jib:build"
-            }
-    }
+    
+
+    def dockerImage
+	stage('publish docker') {    
+		withCredentials([usernamePassword(credentialsId: 'docker-credential', passwordVariable:'DOCKER_REGISTRY_PWD', usernameVariable: 'DOCKER_REGISTRY_USER')]) {
+			sh "./mvnw -ntp jib:build"
+		}
+	}
 }
