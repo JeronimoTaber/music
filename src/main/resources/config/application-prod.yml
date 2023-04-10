@@ -15,9 +15,9 @@
 
 logging:
   level:
-    ROOT: TRACE
-    tech.jhipster: INFO
-    com.jhipster.demo.bootifulmusic: INFO
+    ROOT: DEBUG
+    tech.jhipster: DEBUG
+    com.jhipster.demo.bootifulmusic: DEBUG
 
 management:
   metrics:
